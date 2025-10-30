@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIDNA CLUB - Pod de cooperare România-Ucraina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0038A8;
+            --secondary: #0057B7;
+            --accent: #FFD700;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --success: #28A745;
+            --text: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 50%, #FFD700 50%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: #FFD700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 56, 168, 0.8), rgba(0, 87, 183, 0.8)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: #FFC400;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 30px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 30px;
+        }
+
+        /* Opportunities Section */
+        .opportunities {
+            background: var(--light);
+        }
+
+        .opportunity-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .opportunity-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .opportunity-header {
+            padding: 20px;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .opportunity-body {
+            padding: 20px;
+        }
+
+        .opportunity-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Members Section */
+        .members {
+            background: var(--white);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .member-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 56, 168, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 140px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .hero {
+                margin-top: 120px;
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ro">RO</button>
+                    <button class="lang-btn" data-lang="uk">UA</button>
+                </div>
+                <div class="contact-info-top">
+                    <i class="fas fa-phone"></i> +40 721 123 456 | 
+                    <i class="fas fa-envelope"></i> contact@ridnaclub.org
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="logo-text">RIDNA <span>CLUB</span></div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Acasă</a></li>
+                    <li><a href="#about" class="nav-link">Despre Noi</a></li>
+                    <li><a href="#services" class="nav-link">Servicii</a></li>
+                    <li><a href="#opportunities" class="nav-link">Oportunități</a></li>
+                    <li><a href="#members" class="nav-link">Membri</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="lang-content active" data-lang="ro">
+                    <h1>RIDNA CLUB - Pod de cooperare România-Ucraina</h1>
+                    <p>Organizație non-profit care sprijină companiile românești în Ucraina și companiile ucrainene în România</p>
+                    <a href="#contact" class="btn">Deveniți membru</a>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h1>RIDNA CLUB - Міст співпраці Румунія-Україна</h1>
+                    <p>Неприбуткова організація, яка підтримує румунські компанії в Україні та українські компанії в Румунії</p>
+                    <a href="#contact" class="btn">Стати членом</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <div class="lang-content active" data-lang="ro">
+                    <h2>Despre Noi</h2>
+                    <p>Cine suntem și care este misiunea noastră</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h2>Про нас</h2>
+                    <p>Хто ми та яка наша місія</p>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Misiunea RIDNA CLUB</h3>
+                        <p>RIDNA CLUB este o organizație non-profit, formată la inițiativa unor antreprenori din România pentru a sprijini și promova interesele companiilor industriale, comerciale și de servicii ucrainene în România și ale companiilor românești în Ucraina.</p>
+                        <p>Lucrăm pentru a aborda diverse probleme actuale de integrare, promovare și dezvoltare, vizând parteneriatul și colaborarea pe termen lung.</p>
+                        <p>Informăm și prezentăm autorităților atât locale cât și guvernamentale, situația reală privind cooperarea transfrontalieră, oportunitățile, barierele și soluțiile, oferim o platformă de contact între mediul de afaceri și autorități.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Місія RIDNA CLUB</h3>
+                        <p>RIDNA CLUB - це неприбуткова організація, створена за ініціативою румунських підприємців для підтримки та просування інтересів українських промислових, торгових та сервісних компаній в Румунії та румунських компаній в Україні.</p>
+                        <p>Ми працюємо над вирішенням різноманітних актуальних проблем інтеграції, просування та розвитку, орієнтуючись на довгострокове партнерство та співпрацю.</p>
+                        <p>Інформуємо та представляємо місцевій та державній владі реальну ситуацію щодо транскордонного співробітництва, можливості, бар'єри та рішення, надаємо платформу для контактів між бізнес-середовищем та органами влади.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Business Meeting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <div class="lang-content active" data-lang="ro">
+                    <h2>Serviciile Noastre</h2>
+                    <p>Cum vă putem ajuta să vă extindeți afacerea</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h2>Наші Послуги</h2>
+                    <p>Як ми можемо допомогти розширити ваш бізнес</p>
+                </div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Consultanță Legală</h3>
+                        <p>Consultanta privind aspectele legale si normele de reglementare în ambele țări.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Юридичні Консультації</h3>
+                        <p>Консультації щодо правових аспектів та нормативних актів в обох країнах.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Soluții Fiscale</h3>
+                        <p>Dezvoltarea soluțiilor fiscale și a cadrelor financiare pentru proiectele de investiții.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Податкові Рішення</h3>
+                        <p>Розробка податкових рішень та фінансових структур для інвестиційних проектів.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Înregistrare Societăți</h3>
+                        <p>Asistență la înregistrarea societăților în România și Ucraina.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Реєстрація Компаній</h3>
+                        <p>Допомога у реєстрації компаній в Румунії та Україні.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Investiții Imobiliare</h3>
+                        <p>Consultanță și asistență în operațiunile de investiții în sectorul imobiliar.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Нерухомість</h3>
+                        <p>Консультації та допомога в інвестиційних операціях у сфері нерухомості.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Logistică și Transport</h3>
+                        <p>Logistică, suport juridic și economic în transferul căilor de transport în tranzitarea mărfurilor.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Логістика та Транспорт</h3>
+                        <p>Логістика, юридична та економічна підтримка в передачі транспортних шляхів для транзиту товарів.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Audit și Consultanță</h3>
+                        <p>Audit și consultanță contabilă pentru companiile din ambele țări.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Аудит та Консультації</h3>
+                        <p>Аудит та бухгалтерські консультації для компаній з обох країн.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="opportunities" id="opportunities">
+        <div class="container">
+            <div class="section-title">
+                <div class="lang-content active" data-lang="ro">
+                    <h2>Oportunități de Investiții</h2>
+                    <p>Descoperă cele mai recente oportunități de afaceri</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h2>Інвестиційні Можливості</h2>
+                    <p>Відкрийте найновіші бізнес-можливості</p>
+                </div>
+            </div>
+            <div class="opportunity-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="lang-content active" data-lang="ro">Toate</span>
+                    <span class="lang-content" data-lang="uk">Всі</span>
+                </button>
+                <button class="filter-btn" data-filter="romania">
+                    <span class="lang-content active" data-lang="ro">România</span>
+                    <span class="lang-content" data-lang="uk">Румунія</span>
+                </button>
+                <button class="filter-btn" data-filter="ucraina">
+                    <span class="lang-content active" data-lang="ro">Ucraina</span>
+                    <span class="lang-content" data-lang="uk">Україна</span>
+                </button>
+                <button class="filter-btn" data-filter="imobiliare">
+                    <span class="lang-content active" data-lang="ro">Imobiliare</span>
+                    <span class="lang-content" data-lang="uk">Нерухомість</span>
+                </button>
+            </div>
+            <div class="opportunities-grid">
+                <div class="opportunity-card" data-category="romania imobiliare">
+                    <div class="opportunity-header">
+                        <div class="lang-content active" data-lang="ro">
+                            <h3>Centru Logistic Constanța</h3>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <h3>Логістичний центр Констанца</h3>
+                        </div>
+                    </div>
+                    <div class="opportunity-body">
+                        <div class="opportunity-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Constanța, România</span>
+                            <span><i class="fas fa-euro-sign"></i> 2.5M</span>
+                        </div>
+                        <div class="lang-content active" data-lang="ro">
+                            <p>Investiție în centru logistic pentru tranzitarea mărfurilor prin Portul Constanța. Oportunitate excelentă pentru companii din domeniul transportului.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Află mai multe</a>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <p>Інвестиції в логістичний центр для транзиту товарів через порт Констанца. Відмінна можливість для компаній у сфері транспорту.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Дізнатися більше</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card" data-category="ucraina">
+                    <div class="opportunity-header">
+                        <div class="lang-content active" data-lang="ro">
+                            <h3>Fabrica de Procesare Agricolă</h3>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <h3>Завод з переробки сільгосппродукції</h3>
+                        </div>
+                    </div>
+                    <div class="opportunity-body">
+                        <div class="opportunity-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Cernăuți, Ucraina</span>
+                            <span><i class="fas fa-euro-sign"></i> 1.8M</span>
+                        </div>
+                        <div class="lang-content active" data-lang="ro">
+                            <p>Modernizare fabrică de procesare cereale în vestul Ucrainei. Regiune cu potențial agricol ridicat și forță de muncă calificată.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Află mai multe</a>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <p>Модернізація заводу з переробки зерна на заході України. Регіон з високим сільськогосподарським потенціалом та кваліфікованою робочою силою.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Дізнатися більше</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card" data-category="romania imobiliare">
+                    <div class="opportunity-header">
+                        <div class="lang-content active" data-lang="ro">
+                            <h3>Complex Rezidențial București</h3>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <h3>Житловий комплекс Бухарест</h3>
+                        </div>
+                    </div>
+                    <div class="opportunity-body">
+                        <div class="opportunity-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> București, România</span>
+                            <span><i class="fas fa-euro-sign"></i> 5.2M</span>
+                        </div>
+                        <div class="lang-content active" data-lang="ro">
+                            <p>Dezvoltare complex rezidențial premium în sectorul 1 al Bucureștiului. Piață imobiliară în creștere constantă.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Află mai multe</a>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <p>Розробка преміум житлового комплексу в 1-му секторі Бухареста. Ринок нерухомості постійно зростає.</p>
+                            <a href="#contact" class="btn" style="margin-top: 15px;">Дізнатися більше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section class="members" id="members">
+        <div class="container">
+            <div class="section-title">
+                <div class="lang-content active" data-lang="ro">
+                    <h2>Membrii Noștri</h2>
+                    <p>Companii care fac parte din rețeaua noastră</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h2>Наші Члени</h2>
+                    <p>Компанії, які входять до нашої мережі</p>
+                </div>
+            </div>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-logo">
+                        <img src="https://via.placeholder.com/150x80/0038A8/FFFFFF?text=COMPANY+RO" alt="Company RO">
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h4>AgroBusiness RO</h4>
+                        <p>Companie de agrobusiness din România</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h4>AgroBusiness RO</h4>
+                        <p>Агробізнес компанія з Румунії</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-logo">
+                        <img src="https://via.placeholder.com/150x80/0057B7/FFFFFF?text=COMPANY+UA" alt="Company UA">
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h4>TechInnovations UA</h4>
+                        <p>Companie tehnologică din Ucraina</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h4>TechInnovations UA</h4>
+                        <p>Технологічна компанія з України</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-logo">
+                        <img src="https://via.placeholder.com/150x80/0038A8/FFFFFF?text=LOGISTICS+RO" alt="Logistics RO">
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h4>FastLogistics RO</h4>
+                        <p>Companie de logistică din România</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h4>FastLogistics RO</h4>
+                        <p>Логістична компанія з Румунії</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-logo">
+                        <img src="https://via.placeholder.com/150x80/0057B7/FFFFFF?text=CONSULT+UA" alt="Consult UA">
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <h4>BusinessConsult UA</h4>
+                        <p>Consultanță afaceri din Ucraina</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h4>BusinessConsult UA</h4>
+                        <p>Бізнес-консалтинг з України</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <div class="lang-content active" data-lang="ro">
+                    <h2>Contactați-ne</h2>
+                    <p>Luați legătura cu echipa noastră</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <h2>Зв'яжіться з нами</h2>
+                    <p>Зв'яжіться з нашою командою</p>
+                </div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="lang-content active" data-lang="ro">
+                            <h3>Informații de contact</h3>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <h3>Контактна інформація</h3>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <div class="lang-content active" data-lang="ro">
+                                    <h4>Adresă</h4>
+                                    <p>Strada Exemplu 123, București, România</p>
+                                </div>
+                                <div class="lang-content" data-lang="uk">
+                                    <h4>Адреса</h4>
+                                    <p>Вулиця Приклад 123, Бухарест, Румунія</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p>+40 721 123 456</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@ridnaclub.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <div class="lang-content active" data-lang="ro">
+                                    <h4>Program</h4>
+                                    <p>Luni - Vineri: 9:00 - 18:00</p>
+                                </div>
+                                <div class="lang-content" data-lang="uk">
+                                    <h4>Графік роботи</h4>
+                                    <p>Понеділок - П'ятниця: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Trimite-ne un mesaj</h3>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Надішліть нам повідомлення</h3>
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <div class="lang-content active" data-lang="ro">
+                                <label for="name">Nume</label>
+                            </div>
+                            <div class="lang-content" data-lang="uk">
+                                <label for="name">Ім'я</label>
+                            </div>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="lang-content active" data-lang="ro">
+                                <label for="service">Serviciu de interes</label>
+                            </div>
+                            <div class="lang-content" data-lang="uk">
+                                <label for="service">Послуга, що цікавить</label>
+                            </div>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value=""></option>
+                                <option value="legal">
+                                    <span class="lang-content active" data-lang="ro">Consultanță Legală</span>
+                                    <span class="lang-content" data-lang="uk">Юридичні Консультації</span>
+                                </option>
+                                <option value="fiscal">
+                                    <span class="lang-content active" data-lang="ro">Soluții Fiscale</span>
+                                    <span class="lang-content" data-lang="uk">Податкові Рішення</span>
+                                </option>
+                                <option value="registration">
+                                    <span class="lang-content active" data-lang="ro">Înregistrare Societăți</span>
+                                    <span class="lang-content" data-lang="uk">Реєстрація Компаній</span>
+                                </option>
+                                <option value="realestate">
+                                    <span class="lang-content active" data-lang="ro">Investiții Imobiliare</span>
+                                    <span class="lang-content" data-lang="uk">Нерухомість</span>
+                                </option>
+                                <option value="logistics">
+                                    <span class="lang-content active" data-lang="ro">Logistică și Transport</span>
+                                    <span class="lang-content" data-lang="uk">Логістика та Транспорт</span>
+                                </option>
+                                <option value="audit">
+                                    <span class="lang-content active" data-lang="ro">Audit și Consultanță</span>
+                                    <span class="lang-content" data-lang="uk">Аудит та Консультації</span>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="lang-content active" data-lang="ro">
+                                <label for="message">Mesaj</label>
+                            </div>
+                            <div class="lang-content" data-lang="uk">
+                                <label for="message">Повідомлення</label>
+                            </div>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <div class="lang-content active" data-lang="ro">
+                            <button type="submit" class="btn">Trimite Mesaj</button>
+                        </div>
+                        <div class="lang-content" data-lang="uk">
+                            <button type="submit" class="btn">Надіслати повідомлення</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="logo-text" style="color: white;">RIDNA <span style="color: #FFD700;">CLUB</span></div>
+                    </div>
+                    <div class="lang-content active" data-lang="ro">
+                        <p>Organizație non-profit care sprijină companiile românești în Ucraina și companiile ucrainene în România.</p>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <p>Неприбуткова організація, яка підтримує румунські компанії в Україні та українські компанії в Румунії.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Link-uri rapide</h3>
+                        <ul style="list-style: none;">
+                            <li><a href="#home" style="color: white; text-decoration: none;">Acasă</a></li>
+                            <li><a href="#about" style="color: white; text-decoration: none;">Despre Noi</a></li>
+                            <li><a href="#services" style="color: white; text-decoration: none;">Servicii</a></li>
+                            <li><a href="#opportunities" style="color: white; text-decoration: none;">Oportunități</a></li>
+                            <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Швидкі посилання</h3>
+                        <ul style="list-style: none;">
+                            <li><a href="#home" style="color: white; text-decoration: none;">Головна</a></li>
+                            <li><a href="#about" style="color: white; text-decoration: none;">Про нас</a></li>
+                            <li><a href="#services" style="color: white; text-decoration: none;">Послуги</a></li>
+                            <li><a href="#opportunities" style="color: white; text-decoration: none;">Можливості</a></li>
+                            <li><a href="#contact" style="color: white; text-decoration: none;">Контакт</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <div class="lang-content active" data-lang="ro">
+                        <h3>Serviciile noastre</h3>
+                        <ul style="list-style: none;">
+                            <li>Consultanță Legală</li>
+                            <li>Soluții Fiscale</li>
+                            <li>Înregistrare Societăți</li>
+                            <li>Investiții Imobiliare</li>
+                            <li>Logistică și Transport</li>
+                        </ul>
+                    </div>
+                    <div class="lang-content" data-lang="uk">
+                        <h3>Наші послуги</h3>
+                        <ul style="list-style: none;">
+                            <li>Юридичні Консультації</li>
+                            <li>Податкові Рішення</li>
+                            <li>Реєстрація Компаній</li>
+                            <li>Нерухомість</li>
+                            <li>Логістика та Транспорт</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="lang-content active" data-lang="ro">
+                    <p>&copy; 2023 RIDNA CLUB. Toate drepturile rezervate.</p>
+                </div>
+                <div class="lang-content" data-lang="uk">
+                    <p>&copy; 2023 RIDNA CLUB. Всі права захищені.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const langContents = document.querySelectorAll('.lang-content');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show/hide language content
+                    langContents.forEach(content => {
+                        if (content.getAttribute('data-lang') === lang) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Mobile Menu
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Opportunity Filters
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const opportunityCards = document.querySelectorAll('.opportunity-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active filter button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter opportunity cards
+                    opportunityCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Form Submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get current language
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    
+                    // Simple form validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const service = document.getElementById('service').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (name && email && service && message) {
+                        if (currentLang === 'ro') {
+                            alert('Mulțumim pentru mesaj! Vă vom contacta în curând.');
+                        } else {
+                            alert('Дякуємо за повідомлення! Ми зв\'яжемося з вами найближчим часом.');
+                        }
+                        contactForm.reset();
+                    } else {
+                        if (currentLang === 'ro') {
+                            alert('Vă rugăm completați toate câmpurile obligatorii.');
+                        } else {
+                            alert('Будь ласка, заповніть усі обов\'язкові поля.');
+                        }
+                    }
+                });
+            }
+            
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.8s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
